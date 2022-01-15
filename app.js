@@ -60,53 +60,6 @@ client.on('message', msg => {
   } else if (msg.body == 'good morning') {
     msg.reply('ok');
   } 
-  
-  else if(msg.body == 'media'){
-  
-  // create bnyt meee Send media
-    
-    
-app.post('/send-media', async (req, res) => {
-  const number = phoneNumberFormatter(req.body.number);
-  const caption = note;
-  const fileUrl = https://firebasestorage.googleapis.com/v0/b/polyapp-dc1c8.appspot.com/o/CT%2FS4%2FOS%2FOS%20mod_IV.pdf?alt=media&token=2b3caf6a-c29e-408a-be0b-0356053055c5;
-
-  // const media = MessageMedia.fromFilePath('./image-example.png');
-  // const file = req.files.file;
-  // const media = new MessageMedia(file.mimetype, file.data.toString('base64'), file.name);
-  let mimetype;
-  const attachment = await axios.get(fileUrl, {
-    responseType: 'arraybuffer'
-  }).then(response => {
-    mimetype = response.headers['content-type'];
-    return response.data.toString('base64');
-  });
-
-  const media = new MessageMedia(mimetype, attachment, 'Media');
-
-  client.sendMessage(number, media, {
-    caption: caption
-  }).then(response => {
-    res.status(200).json({
-      status: true,
-      response: response
-    });
-  }).catch(err => {
-    res.status(500).json({
-      status: false,
-      response: err
-    });
-  });
-});
-    
-    
-    
-    
-  }
-  
-  
-  
-  
   else if (msg.body == '!groups') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup)
