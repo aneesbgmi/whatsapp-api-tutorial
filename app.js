@@ -6,7 +6,7 @@ const qrcode = require('qrcode');
 const http = require('http');
 const fs = require('fs');
 const { phoneNumberFormatter } = require('./helpers/formatter');
-//const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
 
@@ -55,14 +55,14 @@ const client = new Client({
 });
 
 client.on('message', msg => {
-  if (msg.body == 'hi') {
+  if (msg.body == '!ping') {
     msg.reply('pong');
   } else if (msg.body == 'good morning') {
-    msg.reply('ok');
-  } 
-  else if (msg.body == '!groups') {
+    msg.reply('selamat pagi');
+  } else if (msg.body == '!groups') {
     client.getChats().then(chats => {
-      const groups = chats.filter(chat => chat.isGroup)
+      const groups = chats.filter(chat => chat.isGroup);
+
       if (groups.length == 0) {
         msg.reply('You have no group yet.');
       } else {
@@ -76,18 +76,42 @@ client.on('message', msg => {
     });
   }
 
-client.on('message',msg =>{
+  // Downloading media
+  if (msg.hasMedia) {
+    msg.downloadMedia().then(media => {
+      // To better understanding
+      // Please look at the console what data we get
+      console.log(media);
 
-  if(msg.body=='hi'){
-    const { Buttons } = require("whatsapp-web.js")
+      if (media) {
+        // The folder to store: change as you want!
+        // Create if not exists
+        const mediaPath = './downloaded-media/';
 
-msg.reply(
-new Buttons(body , [{body: "hi", id: "reply-1"}, {body: "bye", id: "reply-2"}], "title", "footer"))
+        if (!fs.existsSync(mediaPath)) {
+          fs.mkdirSync(mediaPath);
+        }
+
+        // Get the file extension by mime-type
+        const extension = mime.extension(media.mimetype);
+        
+        // Filename: change as you want! 
+        // I will use the time for this example
+        // Why not use media.filename? Because the value is not certain exists
+        const filename = new Date().getTime();
+
+        const fullFilename = mediaPath + filename + '.' + extension;
+
+        // Save to file
+        try {
+          fs.writeFileSync(fullFilename, media.data, { encoding: 'base64' }); 
+          console.log('File downloaded successfully!', fullFilename);
+        } catch (err) {
+          console.log('Failed to save the file:', err);
+        }
+      }
+    });
   }
-
-})
-
-
 });
 
 client.initialize();
@@ -185,7 +209,7 @@ app.post('/send-message', [
   });
 });
 
-/* Send media
+// Send media
 app.post('/send-media', async (req, res) => {
   const number = phoneNumberFormatter(req.body.number);
   const caption = req.body.caption;
@@ -217,7 +241,7 @@ app.post('/send-media', async (req, res) => {
       response: err
     });
   });
-});*/
+});
 
 const findGroupByName = async function(name) {
   const group = await client.getChats().then(chats => {
@@ -327,4 +351,3 @@ app.post('/clear-message', [
 server.listen(port, function() {
   console.log('App running on *: ' + port);
 });
-
