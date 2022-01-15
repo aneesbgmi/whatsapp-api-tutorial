@@ -64,12 +64,7 @@ client.on('message', msg => {
       const groups = chats.filter(chat => chat.isGroup);
 
 
-      if (msg.body == 'm') {
-   
-  (const { MessageMedia } = require('whatsapp-web.js');
- 
- const media = new MessageMedia('image/png', base64Image);
- chat.sendMessage(media);}
+     
       
       
       
