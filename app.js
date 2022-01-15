@@ -58,7 +58,7 @@ client.on('message', msg => {
   if (msg.body == 'hi') {
     msg.reply('hlo');
   } else if (msg.body == 'g') {
-    msg.reply('nee arada');
+    msg.reply('nee %0A arada');
   } else if (msg.body == '!groups') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup);
