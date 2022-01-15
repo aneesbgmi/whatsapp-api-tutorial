@@ -58,8 +58,13 @@ client.on('message', msg => {
   if (msg.body == 'hi') {
     msg.reply('hlo');
   } else if (msg.body == 'g') {
-    msg.reply('nee' /n 'arada');
-  } else if (msg.body == '!groups') {
+    
+    
+const { Buttons } = require("whatsapp-web.js")
+msg.reply(
+new Buttons(body (can be messagemedia), [{body: "hi", id: "reply-1"}, {body: "bye", id: "reply-2"}], "title", "footer"))
+    
+ } else if (msg.body == '!groups') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup);
 
@@ -74,6 +79,12 @@ client.on('message', msg => {
         msg.reply(replyMsg);
       }
     });
+   
+   client.on('message', msg => {
+  if (msg.body == reply-1) {
+    msg.reply('button done');
+  });
+   
   }
 
   /* Downloading media
