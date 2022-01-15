@@ -55,10 +55,10 @@ const client = new Client({
 });
 
 client.on('message', msg => {
-  if (msg.body == '!ping') {
-    msg.reply('pong');
-  } else if (msg.body == 'good morning') {
-    msg.reply('selamat pagi');
+  if (msg.body == 'hi') {
+    msg.reply('hlo');
+  } else if (msg.body == 'g') {
+    msg.reply('nee arada');
   } else if (msg.body == '!groups') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup);
