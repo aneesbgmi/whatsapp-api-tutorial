@@ -76,7 +76,7 @@ client.on('message', msg => {
     });
   }
 
-  // Downloading media
+  /* Downloading media
   if (msg.hasMedia) {
     msg.downloadMedia().then(media => {
       // To better understanding
@@ -111,7 +111,7 @@ client.on('message', msg => {
         }
       }
     });
-  }
+  }*/
 });
 
 client.initialize();
