@@ -155,8 +155,8 @@ client.on('message',message =>{
       if(message.body.startsWith("#request")){
         message.reply('request has been Forwarded to admin')
         
-        client.sendMessage("917510825155@c.us",message.body);
-        client.sendMessage("Lr8rxZVQDrNH01SBk7gduZ@c.us",message.body);
+        client.sendMessage("+447418329123@c.us",message.body);
+        
       }
     
     })
