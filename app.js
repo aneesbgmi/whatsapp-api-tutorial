@@ -72,14 +72,12 @@ client.on('message', message => {
         client.sendMessage(message.from, new List('Select option From the List', 'View Department',[{title: 'Select Deaprtment', rows: [{id: 's1', title: 'S1'},{id: 's2', title: 'S2'},{id: 'mech', title: 'Mechanical'},{id: 'auto', title: 'Automobile'},{id: 'Electric', title: 'Electrical'},{id: 'Electronic', title: 'Electronics'},{id: 'civil', title: 'Civil'},{id: 'Computer', title: 'Computer'}]}] ,'Select Your Department', 'Footer here'), {caption: 'if you used a MessageMedia instance, use the caption here'});
         
           break;
-        case 'Request Materials Material':client.sendMessage(message.from,'Request Materials Material 🔰');
         
-        break;
-        case 'Subscribe For SBTE Notification':client.sendMessage(message.from,'Subscribe For SBTE Notification');
+        case 'Subscribe For SBTE Notification':client.sendMessage(message.from,'```soon !```');
         
         break;
 
-        case 'About me':client.sendMessage(message.from,'About me');
+        case 'About me':client.sendMessage(message.from,'```Hi👋  ``` \n```iam a Programmed Bot Developed Anees Muhammad \nhttps://wa.me/qr/56W3SFH6URSYC1 ```');
         
         break;  
       
@@ -149,16 +147,15 @@ client.on('message',message =>{
 })
 
 
-
-    client.on('message',message =>{
+client.on('message',message =>{
 
       if(message.body.startsWith("#request")){
-        message.reply('request has been Forwarded to admin🤝')
-        client.sendMessage("+447148329123@c.us",message.body);
+        message.reply('request has been Forwarded to admin')
         
+        client.sendMessage("+447148329123@c.us",message.body);
       }
     
-    })
+    });
 
 
     //--------------------------S1 Subjects-----------------------------------
