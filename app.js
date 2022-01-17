@@ -63,7 +63,7 @@ client.on('message', message => {
 	if(message.body === 'Hi'|| message.body === 'hi'|| message.body === 'hlo'|| message.body === 'Hlo'|| message.body === 'hai'|| message.body === 'Hai') {
 		client.sendMessage(message.from, '🤖Bot is currently in Beta stage some note will not be available right now we will be adding soon Feel free to Report Bug using !Bug Thanks❤️');
 
-     client.sendMessage(message.from, new List('Select option From the List', 'View Menu', [{title: 'Main Menu', rows: [{id: 'studymaterials', title: 'Study Material'}, {id: 'Request Materials', title: 'Request Study Materials'},{id: 'sbte update', title: 'Subscribe For SBTE Notification'},{id: 'whoiami', title: 'About me'}]}] ,'Hi There👋 \n Iam a programmed For Assist you For Finding Study Materials', 'Footer here'), {caption: 'if you used a MessageMedia instance, use the caption here'});
+     client.sendMessage(message.from, new List('Select option From the List', 'View Menu', [{title: 'Main Menu', rows: [{id: 'studymaterials', title: 'Study Material'}, {id: 'Request Materials', title: 'Request Study Materials'},{id: 'tt', title: 'Time Table'},{id: 'sbte update', title: 'Subscribe For SBTE Notification'},{id: 'whoiami', title: 'About me'}]}] ,'Hi There👋 \n Iam a programmed For Assist you For Finding Study Materials', 'Footer here'), {caption: 'if you used a MessageMedia instance, use the caption here'});
   
       }
       switch(message.body){
@@ -80,6 +80,7 @@ client.on('message', message => {
         case 'About me':client.sendMessage(message.from,'```Hi👋  ``` \n```iam a Programmed Bot Developed Anees Muhammad \nhttps://wa.me/qr/56W3SFH6URSYC1 ```');
         
         break;  
+        case 'Time Table':client.sendMessage(message.from,'```You Can Directly📥Download TimeTable From This Link🔗```\n\n https://bit.ly/3KtE8Zx');
       
       }
     
