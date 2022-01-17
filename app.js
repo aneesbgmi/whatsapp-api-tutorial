@@ -146,7 +146,7 @@ client.on('message',message =>{
   }
 else if(message.body.startsWith("!Bug")){
         message.reply('Bug Report Sucesss') 
-        client.sendMessage("+447148329123@c.us",message.body);
+        client.sendMessage("447148329123@c.us",message.body);
       }
 	
 	
@@ -160,7 +160,7 @@ else if(message.body.startsWith("!Bug")){
       if(message.body.startsWith("#request")){
         message.reply('request has been Forwarded to admin')
         
-        client.sendMessage("+447148329123@c.us",message.body);
+        client.sendMessage("447148329123@c.us",message.body);
       }
 	    
 	    
