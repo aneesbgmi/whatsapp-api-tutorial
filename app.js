@@ -61,7 +61,7 @@ const client = new Client({
 
 client.on('message', message => {
 	if(message.body === 'Hi'|| message.body === 'hi'|| message.body === 'hlo'|| message.body === 'Hlo'|| message.body === 'hai'|| message.body === 'Hai') {
-		client.sendMessage(message.from, '🤖Bot is currently in Beta stage some note will not be available right now we will be adding soon Feel free to Report Bug using !Bug Thanks❤️');
+		client.sendMessage(message.from, '🤖Bot is currently in Beta stage some note will not be available right now we will be adding soon Feel free to Report Bug using *!Bug* Thanks❤️');
 
      client.sendMessage(message.from, new List('Select option From the List', 'View Menu', [{title: 'Main Menu', rows: [{id: 'studymaterials', title: 'Study Material'}, {id: 'Request Materials', title: 'Request Study Materials'},{id: 'tt', title: 'Time Table'},{id: 'sbte update', title: 'Subscribe For SBTE Notification'},{id: 'whoiami', title: 'About me'}]}] ,'Hi There👋 \n Iam a programmed For Assist you For Finding Study Materials', 'Footer here'), {caption: 'if you used a MessageMedia instance, use the caption here'});
   
@@ -80,7 +80,7 @@ client.on('message', message => {
         case 'About me':client.sendMessage(message.from,'```Hi👋  ``` \n```iam a Programmed Bot Developed Anees Muhammad \nhttps://wa.me/qr/56W3SFH6URSYC1 ```');
         
         break;  
-        case 'Time Table':client.sendMessage(message.from,'```You Can Directly📥Download TimeTable From This Link🔗```\n\n https://bit.ly/3KtE8Zx');
+        case 'Time Table':client.sendMessage(message.from,'```You Can Directly📥Download TimeTable From This Link🔗```\n\n https://bit.ly/34XZAp6');
       
       }
     
@@ -131,7 +131,7 @@ else if(message.body=='Automobile')
   else if(message.body=='Computer')
   {
     client.sendMessage(message.from, new List('Select Semester', 'Select',[{title: 'Select Semester', rows: [{id: 's2', title: 'CT-S2'},{id: 's3', title: 'CT-S3'},{id: 's4', title: 'CT-S4'},{id: 's5', title: 'CT-S5'},{id: 's6', title: 'CT-S6'}]}] ,'SemComputer Computer Engineering', 'Footer here'), {caption: 'if you used a MessageMedia instance, use the caption here'});
-    } 
+    }
 });
 
 
@@ -144,6 +144,12 @@ client.on('message',message =>{
     message.reply('You Can Request any File In Following Following Formate👇\n*#request Department Sem Subject Name(description)* \n\n ```Eg: #request Mech S4 Thermal(shortnote)```' )
 
   }
+else if(message.body.startsWith("!Bug")){
+        message.reply('Bug Report Sucesss') 
+        client.sendMessage("+447148329123@c.us",message.body);
+      }
+	
+	
 
 })
 
@@ -156,6 +162,8 @@ client.on('message',message =>{
         
         client.sendMessage("+447148329123@c.us",message.body);
       }
+	    
+	    
     
     })
 
